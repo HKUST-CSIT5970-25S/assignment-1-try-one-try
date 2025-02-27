@@ -15,11 +15,15 @@
 
 1. (1 mark) Report the name of measurement tool used in your measurements (you are free to choose *any* open source measurement software as long as it can measure CPU and memory performance). Please describe your configuration of the measurement tool, and explain why you set such a value for each parameter. Explain what the values obtained from measurement results represent (e.g., the value of your measurement result can be the execution time for a scientific computing task, a score given by the measurement tools or something else).
 
-    >  The benchmarking tool I use is Phoronix Test Suite, iPerf and Ping.
+    >  **The benchmarking tool I used is the same as tutorial: Phoronix Test Suite, iPerf and Ping.**
 
-    >For **CPU performance**, I used the pts/compress-7zip test. This test measures the compression and decompression performance of the CPU. I chose this test because it gives a clear indication of how the CPU performs under heavy load. **For the value of my measurement result, I choose to use average compression rate.**
+    >  **For N.Virginia, my server and client is at us-east-1c**
+    
+    >  **For Oregon, my server and client is at us-west-2a**
 
-    >For **memory performance**, I used the pts/ramspeed test. This test measures the read and write speeds of the memory. I selected this test to assess how efficiently the system handles memory access and data throughput. **For the value of my measurement result, I choose to use average speed of copying Integer.** 
+    >For **CPU performance**, I used the pts/compress-7zip test. I chose this test because it gives a clear indication of how the CPU performs under heavy load. **For the value of my measurement result, I choose to use average compression rate.**
+
+    >For **memory performance**, I used the pts/ramspeed test. I selected this test to assess how efficiently the system handles memory access and data throughput. **For the value of my measurement result, I choose to use average speed of copying Integer.** 
 
     >For **TCP bandwith performance**, I used the iPerf test with 256k window size. I selected this test to measure the network throughput between end hosts. **For the value of my measurement result, I choose Mbps (Gbits/sec times 1000).** 
 
@@ -57,7 +61,11 @@ The tool automatically reports the performance scores in terms of MIPS for CPU a
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. Note: Use private IP address when using iPerf within the same region. You'll need iPerf for measuring TCP bandwidth and Ping for measuring Round-Trip time.
 
-    > First of all, I observe that with the more bandwidth, the less RTT. Then, Instances of the same type generally show consistent performance, with c5n.large being the most performant, followed by m5.large and t3.medium. For instances of different types, the network performance varies more. The best performance is observed between m5.large - c5n.large, which exceeds other two a lot (t3.medium - c5n.large and m5.large - t3.medium)
+    > First of all, I observe that with the more bandwidth, the less RTT. Then, the network performance for instances of the same type is generally better than that of different types. However, there are two exceptions: 
+
+    >`t3.medium` - `t3.medium`'s performance is worse than `t3.medium` - `c5n.large` and `m5.large` - `t3.medium`. 
+
+    >`m5.large` - `c5n.large`'s performance is distinctly outstanding than all  instances of the same type.
 
 2. (1 mark) What about the network performance for instances deployed in different regions? In order to answer this question, you need to complete the following table.
 
